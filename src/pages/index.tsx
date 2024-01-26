@@ -57,11 +57,28 @@ const videoStyles: React.CSSProperties = {
 const IndexPage: React.FC<PageProps> = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     videoRef.current.playbackRate = 0.1; // Play video at half speed
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (videoRef.current) {
+      // videoRef.current.playbackRate = 0.1; // Play video at half speed
+      const videoElement = videoRef.current;
+      if (videoElement) {
+        const handleVideoLoad = () => {
+          // Autoplay the video when it's loaded
+          videoElement.play().catch((error) => {
+            console.error("Video play failed", error);
+          });
+        };
+
+        // Add event listener for when the video metadata is loaded
+        videoElement.addEventListener("loadedmetadata", handleVideoLoad);
+
+        // Clean up event listener
+        return () => {
+          videoElement.removeEventListener("loadedmetadata", handleVideoLoad);
+        };
+      }
+    }
+  }, []);
 
   return (
     <main style={pageStyles}>
