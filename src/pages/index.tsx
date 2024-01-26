@@ -1,5 +1,7 @@
 import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
+import styled from "styled-components";
+
 import VideoComponent from "../components/VideoComponent";
 
 const pageStyles = {
@@ -8,37 +10,51 @@ const pageStyles = {
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 
-const headingStyles = {
-  fontFamily: "Great Vibes",
-  fontWeight: 300,
-  fontSize: "3em",
-  fontStyle: "normal",
+const headingContainerStyles = {
   color: "#fff",
-  textAlign: "center",
-  position: "absolute",
-  top: "30%",
-  left: "50%",
-  transform: "translate(-50%, -30%)",
-};
-
-const subheadingStyles = {
-  fontFamily: "Great Vibes",
-  fontWeight: 300,
-  fontSize: "1em",
-  fontStyle: "normal",
-  color: "#fff",
-  textAlign: "center",
+  width: "100%",
   position: "absolute",
   top: "40%",
   left: "50%",
   transform: "translate(-50%, -40%)",
+  textAlign: "center",
 };
+
+const HeadingDiv = styled.h1`
+  font-family: "Great Vibes";
+  font-weight: 300;
+  font-size: 3.5em;
+  font-style: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 0.05em;
+  // Media query for screens smaller than 768px
+  @media (max-width: 768px) {
+    font-weight: 100;
+    font-size: 3em;
+  }
+`;
+
+const SubHeadingDiv = styled.h2`
+  font-family: "Great Vibes";
+  font-weight: 300;
+  font-size: 1.5em;
+  font-style: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 0.05em;
+  // Media query for screens smaller than 768px
+  @media (max-width: 768px) {
+    font-weight: 100;
+    font-size: 1.2em;
+  }
+`;
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main style={pageStyles}>
-      <h1 style={headingStyles}>Save the date</h1>
-      <h2 style={subheadingStyles}>13/02/2025</h2>
+      <div style={headingContainerStyles}>
+        <HeadingDiv>Save the date</HeadingDiv>
+        <SubHeadingDiv>13/09/2025</SubHeadingDiv>
+      </div>
       <VideoComponent />
     </main>
   );
