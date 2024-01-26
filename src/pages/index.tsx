@@ -85,7 +85,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <h1 style={headingStyles}>Save the date</h1>
       <h2 style={subheadingStyles}>13/02/2025</h2>
       <div style={videoContainerStyles}>
-        <video ref={videoRef} style={videoStyles} autoPlay loop muted>
+        <video ref={videoRef} style={videoStyles} loop muted>
           <source
             src="https://see-you-in-cyprus.s3.eu-west-1.amazonaws.com/waves.mp4"
             type="video/mp4"
