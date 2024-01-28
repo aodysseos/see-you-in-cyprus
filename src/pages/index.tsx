@@ -44,7 +44,7 @@ const SubHeadingDiv = styled.h2`
   // Media query for screens smaller than 768px
   @media (max-width: 768px) {
     font-weight: 200;
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 `;
 
